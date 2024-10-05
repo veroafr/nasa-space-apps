@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Footprint Calculator</title>
+    <!-- Asegúrate de incluir Montserrat desde Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #070707;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .form-label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: none;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #444;
+            border-radius: 5px;
+        }
+        footer {
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Aquí es donde se inserta la calculadora -->
+    <section id="carbon-calculator">
+        <div class="container">
+            <br><br>
+            <h3 class="text-center" style="font-size: 28px; color: #ffffff; font-family: 'Montserrat', sans-serif;">Daily Footprint Calculator</h3>
+            
+            <p class="text-center" style="font-size: 16px; color: #ffffff; font-family: Montserrat;">Calculate your Carbon Footprint per transportation method (If you use more than one, add them all and the total will be calculated):</p>
+    
+            <div class="mb-3">
+                <label for="car" class="form-label" style="font-size: 20px; color: #ffffff; font-family: 'Montserrat';">Km by car:</label>
+                <input type="number" class="form-control" id="car" value="0">
+            </div>
+            
+            <div class="mb-3">
+                <label for="bus" class="form-label" style="font-size: 20px; color: #ffffff; font-family: 'Montserrat';">Km by bus:</label>
+                <input type="number" class="form-control" id="bus" value="0">
+            </div>
+            
+            <div class="mb-3">
+                <label for="train" class="form-label" style="font-size: 20px; color: #ffffff; font-family: 'Montserrat';">Km by train:</label>
+                <input type="number" class="form-control" id="train" value="0">
+            </div>
+            
+            <div class="mb-3">
+                <label for="bike" class="form-label" style="font-size: 20px; color: #ffffff; font-family: 'Montserrat';">Km by bike:</label>
+                <input type="number" class="form-control" id="bike" value="0">
+            </div>
+            
+            <div class="mb-3">
+                <label for="walk" class="form-label" style="font-size: 20px; color: #ffffff; font-family: 'Montserrat';">Km walking:</label>
+                <input type="number" class="form-control" id="walk" value="0">
+            </div>
+            <br>
+            <center><button class="btn w-100" style="background-color: #343a40; color: white; font-size: 25px; font-family: 'Montserrat', sans-serif;" onclick="calculateCarbon()">Calculate</button></center> 
+            
+            <div class="result alert mt-4 text-center" id="result" style="font-size: 20px; color: #ffffff; font-family: 'Montserrat';"></div>
+        </div>
+    </section>
+    
+    <script>
+        function calculateCarbon() {
+            const carGas = 192;  
+            const bus = 82;   
+            const train = 41; 
+            const bike = 0;   
+            const walk = 0;   
+    
+            const kmCar = parseFloat(document.getElementById('car').value);
+            const kmBus = parseFloat(document.getElementById('bus').value);
+            const kmTrain = parseFloat(document.getElementById('train').value);
+            const kmBike = parseFloat(document.getElementById('bike').value);
+            const kmWalk = parseFloat(document.getElementById('walk').value);
+    
+            const carbonCar = kmCar * carGas;
+            const carbonBus = kmBus * bus;
+            const carbonTrain = kmTrain * train;
+            const carbonBike = kmBike * bike;
+            const carbonWalk = kmWalk * walk;
+    
+            const totalCarbon = carbonCar + carbonBus + carbonTrain + carbonBike + carbonWalk;
+    
+            document.getElementById('result').innerHTML = `Your total CO2 emitted: ${totalCarbon.toFixed(2)} grams per day.<br><br>
+            <b>➡️Global average:</b> ~13200 grams of CO2 per day. <br>
+            <b>➡️Developed countries:</b> Can exceed 43800 grams per day.<br>
+            <b>➡️Sustainable targets:</b> Reduce to 5500 - 6800 grams of CO2 per day by 2050.
+            `;
+        }
+    </script>
+
+    <footer>
+        <center>
+            <p style="font-size: 25px; color: #ffffff; font-family: 'Montserrat', sans-serif;">Thank you for learning about your impact on the environment!</p>
+        </center>
+    </footer>
+
+</body>
+</html>

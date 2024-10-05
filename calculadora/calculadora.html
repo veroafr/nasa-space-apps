@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Footprint Calculator</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { padding: 40px; }
+        .result { margin-top: 20px; font-size: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Carbon Footprint Calculator</h1>
+        <p class="text-center">Enter the kilometers you travel daily using each transportation method:</p>
+        
+        <div class="mb-3">
+            <label for="car" class="form-label">Kilometers by car (g/km: 192 for gasoline, 171 for diesel):</label>
+            <input type="number" class="form-control" id="car" value="0">
+        </div>
+        
+        <div class="mb-3">
+            <label for="bus" class="form-label">Kilometers by bus (g/km: 82):</label>
+            <input type="number" class="form-control" id="bus" value="0">
+        </div>
+        
+        <div class="mb-3">
+            <label for="train" class="form-label">Kilometers by train (g/km: 41):</label>
+            <input type="number" class="form-control" id="train" value="0">
+        </div>
+        
+        <div class="mb-3">
+            <label for="bike" class="form-label">Kilometers by bike (g/km: 0):</label>
+            <input type="number" class="form-control" id="bike" value="0">
+        </div>
+        
+        <div class="mb-3">
+            <label for="walk" class="form-label">Kilometers walking (g/km: 0):</label>
+            <input type="number" class="form-control" id="walk" value="0">
+        </div>
+        
+        <button class="btn btn-primary w-100" onclick="calculateCarbon()">Calculate Carbon Footprint</button>
+        
+        <div class="result alert alert-info mt-4" id="result"></div>
+    </div>
+
+    <script>
+        function calculateCarbon() {
+            // Emission values in grams per kilometer
+            const carGas = 192;  // g/km for gasoline
+            const carDiesel = 171; // g/km for diesel
+            const bus = 82;   // g/km bus
+            const train = 41; // g/km train
+            const bike = 0;   // g/km bike
+            const walk = 0;   // g/km walking
+
+            // Get the kilometers traveled
+            const kmCar = parseFloat(document.getElementById('car').value);
+            const kmBus = parseFloat(document.getElementById('bus').value);
+            const kmTrain = parseFloat(document.getElementById('train').value);
+            const kmBike = parseFloat(document.getElementById('bike').value);
+            const kmWalk = parseFloat(document.getElementById('walk').value);
+
+            // Calculate CO2 emitted (only for transport modes that emit CO2)
+            const carbonCar = kmCar * carGas;
+            const carbonBus = kmBus * bus;
+            const carbonTrain = kmTrain * train;
+            const carbonBike = kmBike * bike;
+            const carbonWalk = kmWalk * walk;
+
+            // Total result
+            const totalCarbon = carbonCar + carbonBus + carbonTrain + carbonBike + carbonWalk;
+
+            // Display the result
+            document.getElementById('result').innerHTML = `Total CO2 emitted: ${totalCarbon.toFixed(2)} grams per day.`;
+        }
+    </script>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
