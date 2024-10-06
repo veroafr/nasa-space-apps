@@ -4,12 +4,36 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
- body {
+body {
     width: 100%;
     height: 100%;
     font-family: Lora, "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #fff;
     background-color: #000;
+    opacity: 1;
+	animation-name: opacityTransition;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 1.5s;
+    overflow-x: hidden;
+}
+
+.footer{
+    opacity: 1;
+	animation-name: opacityTransition;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 1.5s;
+    animation-timeline: view(100% 5%);
+}
+
+@keyframes opacityTransition {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
 }
 
 html {
@@ -17,7 +41,12 @@ html {
     height: 100%;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin: 0 0 25px;
     text-transform: uppercase;
     font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -50,8 +79,79 @@ a:focus {
     color: #1d9b6c;
 }
 
+/* Secciones */
+/* sections */
+
+#chapter1 {
+    /* background-image: url('img/downloads-bg.jpg'); */
+    background-size: cover;
+    background-position: left;
+}
+
+#chapter2 {
+    /* background-image: url('img/downloads-bg2.jpg'); */
+    background-size: cover;
+    background-position: left;
+}
+
+#chapter3 {
+    /* background-image: url('img/downloads-bg3.jpg'); */
+    background-size: cover;
+    background-position: left;
+}
+
+#chapter4 {
+    /* background-image: url('img/downloads-bg4.jpg'); */
+    background-size: cover;
+    background-position: left;
+}
+
+#chapter5 {
+    /* background-image: url('img/downloads-bg5.jpg'); */
+    background-size: cover;
+    background-position: center;
+}
+
+#chapter6 {
+    /* background-image: url('img/downloads-bg6.jpg'); */
+    background-size: cover;
+    background-position: left;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
 .light {
     font-weight: 400;
+}
+
+.header {
+    /* background-image: url('./img/intro-bg.jpg'); */
+    background-size: cover;
+    background-position: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 20px 20px;
+    font-size: 18px;
+    color: #1f1f1f;
+    background-color: #ffffff;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: background-color 0.3s;
+    scale: 1;
+    transition: scale .5s;
+}
+
+.btn:hover {
+    scale: 1.1;
+    transition: scale .3s;
+}
+
+.px-4 {
+    padding: 40px 0;
 }
 
 .navbar-custom {
@@ -84,10 +184,10 @@ a:focus {
     transition: background .3s ease-in-out;
 }
 
-.navbar-custom .nav li a:hover {
+/* .navbar-custom .nav li a:hover {
     color: rgb(0, 0, 0);
     background-color: transparent;
-}
+} */
 
 .navbar-custom .nav li.active a {
     background-color: rgba(0, 0, 0, 0.3);
@@ -114,7 +214,8 @@ a:focus {
     padding: 100px 0;
     text-align: center;
     color: #fff;
-    background-color: var(--intro-bg-color, #000); /* O fundo se define como uma variável CSS */
+    background-color: var(--intro-bg-color, #000);
+    /* O fundo se define como uma variável CSS */
     background-size: cover;
 }
 
@@ -149,7 +250,8 @@ a:focus {
 /* Estilos personalizados para os links da navbar */
 .nav-link {
     position: relative;
-    color: #fff; /* Cor clara para o texto */
+    color: #fff;
+    /* Cor clara para o texto */
     padding: 10px;
     text-decoration: none;
     transition: color 0.3s ease, background-color 0.3s ease;
@@ -157,13 +259,72 @@ a:focus {
 
 /* Efeito ao passar o mouse */
 .nav-link:hover {
-    color: #4CAF50; /* Cor ao passar o mouse */
-    background-color: rgba(255, 255, 255, 0.1); /* Fundo leve ao passar o mouse */
+    color: #4CAF50;
+    /* Cor ao passar o mouse */
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    /* Fundo leve ao passar o mouse */
 }
 
 /* Efeito ao clicar */
 .nav-link:active {
-    color: #2196F3; /* Cor durante o clique */
-    background-color: rgba(255, 255, 255, 0.2); /* Fundo ao clicar */
-    transition: background-color 0.1s ease; /* Transição rápida ao clicar */
+    color: #2196F3;
+    /* Cor durante o clique */
+    background-color: rgba(255, 255, 255, 0.2);
+    /* Fundo ao clicar */
+    transition: background-color 0.1s ease;
+    /* Transição rápida ao clicar */
+}
+
+
+.auto-show {
+    animation: autoShowAnimation both;
+    animation-timeline: view(40% 10%);
+}
+
+@keyframes autoShowAnimation {
+    from {
+        opacity: 0;
+        transform: translateY(100px) scale(.3);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.chart1 {
+    animation: chart1Animation both;
+    animation-timeline: view(40% 10%);
+    width: 75%;
+}
+
+@keyframes chart1Animation {
+    from {
+        opacity: 0;
+        transform: translateX(600px) scale(.3);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+.chart2 {
+    animation: chart2Animation both;
+    animation-timeline: view(40% 10%);
+    width: 75%;
+}
+
+@keyframes chart2Animation {
+    from {
+        opacity: 0;
+        transform: translateX(-600px) scale(.3);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
 }
