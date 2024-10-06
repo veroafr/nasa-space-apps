@@ -15,7 +15,6 @@ body {
 	animation-iteration-count: 1;
 	animation-timing-function: ease-in;
 	animation-duration: 1.5s;
-    overflow-x: hidden;
 }
 
 .footer{
@@ -82,38 +81,7 @@ a:focus {
 /* Secciones */
 /* sections */
 
-#chapter1 {
-    /* background-image: url('img/downloads-bg.jpg'); */
-    background-size: cover;
-    background-position: left;
-}
-
-#chapter2 {
-    /* background-image: url('img/downloads-bg2.jpg'); */
-    background-size: cover;
-    background-position: left;
-}
-
-#chapter3 {
-    /* background-image: url('img/downloads-bg3.jpg'); */
-    background-size: cover;
-    background-position: left;
-}
-
-#chapter4 {
-    /* background-image: url('img/downloads-bg4.jpg'); */
-    background-size: cover;
-    background-position: left;
-}
-
-#chapter5 {
-    /* background-image: url('img/downloads-bg5.jpg'); */
-    background-size: cover;
-    background-position: center;
-}
-
-#chapter6 {
-    /* background-image: url('img/downloads-bg6.jpg'); */
+#chapter {
     background-size: cover;
     background-position: left;
 }
@@ -184,10 +152,6 @@ a:focus {
     transition: background .3s ease-in-out;
 }
 
-/* .navbar-custom .nav li a:hover {
-    color: rgb(0, 0, 0);
-    background-color: transparent;
-} */
 
 .navbar-custom .nav li.active a {
     background-color: rgba(0, 0, 0, 0.3);
@@ -293,38 +257,20 @@ a:focus {
     }
 }
 
-.chart1 {
-    animation: chart1Animation both;
+.chart {
+    animation: chartAnimation both;
     animation-timeline: view(40% 10%);
     width: 75%;
 }
 
-@keyframes chart1Animation {
+@keyframes chartAnimation {
     from {
         opacity: 0;
-        transform: translateX(600px) scale(.3);
+        transform: translateX(-600px);
     }
 
     to {
         opacity: 1;
-        transform: translateX(0) scale(1);
-    }
-}
-
-.chart2 {
-    animation: chart2Animation both;
-    animation-timeline: view(40% 10%);
-    width: 75%;
-}
-
-@keyframes chart2Animation {
-    from {
-        opacity: 0;
-        transform: translateX(-600px) scale(.3);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0) scale(1);
+        transform: translateX(0);
     }
 }
