@@ -11,7 +11,10 @@
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: #343a40;
+            /* background-color: #343a40; */
+            background-image: url(img/about-bg.svg);
+            background-size: cover ;
+            background-color: #0e0915;
         }
 
         .team-section {
@@ -19,8 +22,10 @@
         }
 
         .team-member {
-            margin-bottom: 30px;
+            margin: 10px;
+            padding: 10px;
             text-align: center;
+            background-color: rgba(14, 9, 21, 0.893);
         }
 
         .team-member img {
@@ -44,13 +49,18 @@
             font-size: 10px;
             color: #ffffff;
         }
+
+        .about-team{
+            background-color: rgba(14, 9, 21, 0.893);
+        }
+
     </style>
 </head>
 
 <body>
 
     <!-- About Team Section -->
-    <section class="team-section bg-dark">
+    <section class="team-section">
         <div class="container">
             <div class="text-center">
                 <h1 class="section-title" style="font-size: 35px; font-weight: bold;color:#ffffff;">Meet Our Team</h1>
@@ -58,9 +68,9 @@
                     dedicated to making a difference.</p>
             </div>
 
-            <div class="row mt-5">
+            <div class="row mt-5 justify-content-center">
                 <!-- Team Member 2 -->
-                <div class="col-md-6 team-member">
+                <div class="col-md-5 team-member">
                     <img src="img/@veroafr.png" alt="Team Member 2">
                     <h4 class="section-subtitle" style="color:#ffffff;">Verónica Ferreira</h4>
                     <p>Software Developer</p>
@@ -89,7 +99,7 @@
                 </div>
 
                 <!-- Team Member 2 -->
-                <div class="col-md-6 team-member">
+                <div class="col-md-5 team-member">
                     <img src="img/@Maxgoxt.png" alt="Team Member 2">
                     <h4 class="section-subtitle" style="color:#ffffff;">Maximiliano Gómez</h4>
                     <p>Software Developer</p>
@@ -119,7 +129,7 @@
             </div>
     </section>
 
-    <section class="container">
+    <section class="container about-team">
         <h2 class="pt-3 pb-2" style="color: #fff;">➡️About the Team</h2>
         <p style="color: #fff;">
             We are Systems Analysis and Development students at a binational university between Uruguay (UTEC) 🇺🇾 and Brazil (IFSUL) 🇧🇷, currently halfway through our degree. We have a deep interest in technology and how it can be used to solve global challenges.
