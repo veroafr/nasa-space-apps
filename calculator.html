@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,103 +14,125 @@
             font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
+            background-image: url('img/about-bg.svg');
+            background-size: cover;
+            background-position: center;
         }
+
         .container {
             max-width: 900px;
-            margin: 0 auto;
+            margin: 40px auto;
             padding: 20px;
+            background-color: rgba(30, 30, 40, 0.7);
+            border-radius: 40px;
         }
+
         .form-label {
-            display: block;
-            margin-bottom: 10px;
+            display:inline;
+            margin-bottom: 15px;
         }
+
         .form-control {
-            width: 100%;
+            font-size: 18px;
+            width: 97%;
             padding: 10px;
             margin-bottom: 20px;
-            border-radius: 5px;
-            border: none;
+            border-radius: 40px;
+            border: rgb(from color r g b);
         }
+
         .btn {
-            padding: 10px 20px;
+            padding: 10px 30px;
             border: none;
             cursor: pointer;
-            border-radius: 5px;
+            border-radius: 40px;
+            background-color: #343a40;
+            color: white;
+            font-size: 25px;
+            font-family: 'Montserrat', sans-serif;
+            width: 100%;
         }
+
         .result {
             margin-top: 20px;
             padding: 20px;
+            font-size: 18px;
             background-color: #444;
-            border-radius: 5px;
+            border-radius: 40px;
         }
+
         footer {
             margin-top: 40px;
+            text-align: center;
+            font-size: 25px;
+            color: #ffffff;
         }
     </style>
 </head>
+
 <body>
 
-    <!-- Aquí es donde se inserta la calculadora -->
+    <!-- Aqui es donde se inserta la calculadora -->
     <section id="carbon-calculator">
         <div class="container">
-            <br><br>
-            <h3 class="text-center" style="font-size: 28px; color: #ffffff; font-family: 'Montserrat', sans-serif;">Daily Footprint Calculator</h3>
-            
-            <p class="text-center" style="font-size: 16px; color: #ffffff; font-family: Montserrat;">Calculate your Carbon Footprint per transportation method (If you use more than one, add them all and the total will be calculated):</p>
-    
+            <h3 class="text-center" style="font-size: 28px;">Daily Footprint Calculator</h3>
+
+            <p class="text-center" style="font-size: 16px;">Calculate your Carbon Footprint per transportation method
+                (If you use more than one, add them all and the total will be calculated):</p>
+
             <div class="mb-3">
-                <label for="car" class="form-label" style="font-size: 20px; color: #ffffff; font-family: 'Montserrat';">Km by car:</label>
+                <label for="car" class="form-label" style="font-size: 20px;">Km by car:</label>
                 <input type="number" class="form-control" id="car" value="0">
             </div>
-            
+
             <div class="mb-3">
-                <label for="bus" class="form-label" style="font-size: 20px; color: #ffffff; font-family: 'Montserrat';">Km by bus:</label>
+                <label for="bus" class="form-label" style="font-size: 20px;">Km by bus:</label>
                 <input type="number" class="form-control" id="bus" value="0">
             </div>
-            
+
             <div class="mb-3">
-                <label for="train" class="form-label" style="font-size: 20px; color: #ffffff; font-family: 'Montserrat';">Km by train:</label>
+                <label for="train" class="form-label" style="font-size: 20px;">Km by train:</label>
                 <input type="number" class="form-control" id="train" value="0">
             </div>
-            
+
             <div class="mb-3">
-                <label for="bike" class="form-label" style="font-size: 20px; color: #ffffff; font-family: 'Montserrat';">Km by bike:</label>
+                <label for="bike" class="form-label" style="font-size: 20px;">Km by bike:</label>
                 <input type="number" class="form-control" id="bike" value="0">
             </div>
-            
+
             <div class="mb-3">
-                <label for="walk" class="form-label" style="font-size: 20px; color: #ffffff; font-family: 'Montserrat';">Km walking:</label>
+                <label for="walk" class="form-label" style="font-size: 20px;">Km walking:</label>
                 <input type="number" class="form-control" id="walk" value="0">
             </div>
             <br>
-            <center><button class="btn w-100" style="background-color: #343a40; color: white; font-size: 25px; font-family: 'Montserrat', sans-serif;" onclick="calculateCarbon()">Calculate</button></center> 
-            
-            <div class="result alert mt-4 text-center" id="result" style="font-size: 20px; color: #ffffff; font-family: 'Montserrat';"></div>
+            <button class="btn" onclick="calculateCarbon()">Calculate</button>
+
+            <div class="result alert mt-4 text-center" id="result" style="font-size: 20px;"></div>
         </div>
     </section>
-    
+
     <script>
         function calculateCarbon() {
-            const carGas = 192;  
-            const bus = 82;   
-            const train = 41; 
-            const bike = 0;   
-            const walk = 0;   
-    
+            const carGas = 192;
+            const bus = 82;
+            const train = 41;
+            const bike = 0;
+            const walk = 0;
+
             const kmCar = parseFloat(document.getElementById('car').value);
             const kmBus = parseFloat(document.getElementById('bus').value);
             const kmTrain = parseFloat(document.getElementById('train').value);
             const kmBike = parseFloat(document.getElementById('bike').value);
             const kmWalk = parseFloat(document.getElementById('walk').value);
-    
+
             const carbonCar = kmCar * carGas;
             const carbonBus = kmBus * bus;
             const carbonTrain = kmTrain * train;
             const carbonBike = kmBike * bike;
             const carbonWalk = kmWalk * walk;
-    
+
             const totalCarbon = carbonCar + carbonBus + carbonTrain + carbonBike + carbonWalk;
-    
+
             document.getElementById('result').innerHTML = `Your total CO2 emitted: ${totalCarbon.toFixed(2)} grams per day.<br><br>
             <b>➡️Global average:</b> ~13200 grams of CO2 per day. <br>
             <b>➡️Developed countries:</b> Can exceed 43800 grams per day.<br>
@@ -119,10 +142,9 @@
     </script>
 
     <footer>
-        <center>
-            <p style="font-size: 25px; color: #ffffff; font-family: 'Montserrat', sans-serif;">Thank you for learning about your impact on the environment!</p>
-        </center>
+        <p>Thank you for learning about your impact on the environment!</p>
     </footer>
 
 </body>
+
 </html>
